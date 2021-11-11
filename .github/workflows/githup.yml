@@ -13,9 +13,9 @@ jobs:
         persist-credentials: false
     - name: Install and Build
       run: |
+        echo ${{ secrets.ACCESS_TOKEN }}
         yarn
         yarn run build
-        echo ${{ secrets.ACCESS_TOKEN }}
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
     
