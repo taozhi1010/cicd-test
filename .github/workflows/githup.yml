@@ -11,7 +11,7 @@ jobs:
       uses: actions/checkout@master
 
     - name: Build and Deploy
-      uses: JamesIves/github-pages-deploy-action@main
+      uses: JamesIves/github-pages-deploy-action@4.1.1
       env:
         ACCESS_TOKEN: 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
         BRANCH: gh-pages
