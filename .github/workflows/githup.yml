@@ -15,10 +15,10 @@ jobs:
       with:
         node-version: 16.4.0
     - run: node --version
-    - run: npm test
+    - run: yarn run build
       env:
         CI: true
-        
+
     - name: Build and Deploy
       uses: JamesIves/github-pages-deploy-action@4.1.1
       env:
