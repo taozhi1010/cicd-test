@@ -15,7 +15,7 @@ jobs:
       with:
         node-version: 16.4.0
     - run: node --version
-    - run: yarn run build
+    - run: yarn && yarn run build
       env:
         CI: true
 
