@@ -39,3 +39,5 @@ jobs:
         body: Build job of ${{github.repository}} completed successfully!
         to: 805446529@@qq.com
         from: 陶志
+        content_type: text/html
+        convert_markdown: true
