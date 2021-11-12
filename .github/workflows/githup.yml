@@ -48,7 +48,7 @@ jobs:
         username: ${{secrets.MAIL_USERNAME}}
         password: ${{secrets.MAIL_PASSWORD}}
         subject: 构建通知
-        body: Build job of ${{github.repository}} completed ${{job.status }} ${{github.actor github.email}}!
+        body: Build job of ${{github.repository}} completed ${{job.status}} ${{github.actor}}!
         to: 805446529@qq.com
         from: taozhi1010@163.com
         content_type: text/html
