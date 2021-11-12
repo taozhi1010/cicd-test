@@ -37,7 +37,7 @@ jobs:
         password: ${{secrets.MAIL_PASSWORD}}
         subject: 构建通知
         body: Build job of ${{github.repository}} completed successfully!
-        to: 805446529@@qq.com
-        from: 陶志
+        to: 805446529@qq.com
+        from: taozhi1010@163.com
         content_type: text/html
         convert_markdown: true
