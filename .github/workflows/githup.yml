@@ -11,6 +11,18 @@ jobs:
       uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
       with:
         persist-credentials: false
+    - name: Cache node modules
+      uses: actions/cache@v2
+      env:
+        cache-name: cache-node-modules
+      with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+        path: ~/.yarn
+        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-build-${{ env.cache-name }}-
+          ${{ runner.os }}-build-
+          ${{ runner.os }}-
     - name: Install and Build
       run: |
         yarn
@@ -36,7 +48,7 @@ jobs:
         username: ${{secrets.MAIL_USERNAME}}
         password: ${{secrets.MAIL_PASSWORD}}
         subject: 构建通知
-        body: Build job of ${{github.repository}} completed ${{github.status}}!
+        body: Build job of ${{github.repository}} completed ${{job.status }}!
         to: 805446529@qq.com
         from: taozhi1010@163.com
         content_type: text/html
