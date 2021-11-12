@@ -16,9 +16,14 @@ jobs:
         yarn
         yarn run build
     - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@releases/v3
-    
+      uses: cross-the-world/scp-pipeline@master
+      env:
+        WELCOME: "ssh scp ssh pipelines"
+        LASTSSH: "Doing something after copying"
       with:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: dist
+        host: ${{ secrets.TG_HOST }}
+        user: ${{ secrets.TG_USER }}
+        pass: ${{ secrets.TG_PASS }}
+        connect_timeout: 10s
+        local: './dist/*'
+        remote: /data/nginx/html
