@@ -27,3 +27,15 @@ jobs:
         connect_timeout: 30s
         local: './dist/*'
         remote: /data/nginx/html
+    - name: Send mail ✉️
+      uses: dawidd6/action-send-mail@v2
+      with:
+        server_address: smtp.163.com
+        # smtp 服务器端口
+        server_port: 465
+        username: ${{secrets.MAIL_USERNAME}}
+        password: ${{secrets.MAIL_PASSWORD}}
+        subject: 构建通知
+        body: Build job of ${{github.repository}} completed successfully!
+        to: 805446529@@qq.com
+        from: 陶志
